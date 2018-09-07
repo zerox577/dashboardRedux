@@ -32,7 +32,10 @@
 						<!-- </div> -->
 						<br>
 						<div class="form-group">
-							<button [disabled]="!formLogin.valid" class="btn btn-primary submit-btn btn-block">Login</button>
+							<button *ngIf="!cargando" [disabled]="!formLogin.valid" class="btn btn-primary submit-btn btn-block">Login</button>
+							 <button *ngIf="cargando" [disabled]="!formLogin.valid" class="btn btn-primary submit-btn btn-block">
+                Cargando...<i class="fas fa-stroopwafel fa-spin"></i>
+              </button>
 						</div>
 
 

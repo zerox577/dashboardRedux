@@ -4,9 +4,14 @@ export class UserModel {
 	public uid?:string;
 	public email?:string;
 
-	constructor(nombre:string,uid:string,email:string) {
-		this.nombre = nombre;
-		this.uid = uid;
-		this.email = email;
+	constructor(obj:DataObj) {
+		this.nombre = (obj.nombre)?obj.nombre:null;
+		this.uid = (obj.uid)?obj.uid:null;
+		this.email = (obj.email)?obj.email:null;
 	}
+}
+interface DataObj {
+	uid:string;
+	nombre:string;
+	email:string;
 }
