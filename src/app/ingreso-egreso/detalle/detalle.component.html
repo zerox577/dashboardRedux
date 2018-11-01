@@ -8,18 +8,26 @@
               <thead>
                 <tr>
                   <th>Descripción</th>
-                  <th>Monto</th>
+                  <th style="text-align: right;">Monto</th>
                   <th>Tipo</th>
                   <th></th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>Descripción</td>
-                  <td>Monto</td>
-                  <td>Tipo</td>
-                  <td>acciones</td>
+                <tr *ngFor="let item of items | ordenIngresoEgreso">
+                  <td>{{item.descripcion}}</td>
+                  <td align="right">
+                    <span [ngClass]="{'text-success':item.tipo == 'ingreso','text-danger':item.tipo == 'egreso'}"> 
+                      {{item.monto | currency}}
+                    </span>
+                  </td>
+                  <td>{{item.tipo}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="borrarItem(item)">
+                      <i class="fa fa-trash"></i> Borrar
+                    </button>
+                  </td>
                 </tr>
               </tbody>
 

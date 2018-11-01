@@ -13,7 +13,7 @@ import {AuthService} from '../auth.service';
 export class RegistroComponent implements OnInit,OnDestroy {
 
   public cargando:boolean;
-  public subscription:Subscription;
+  public subscription:Subscription = new Subscription();
 
   constructor(private authService:AuthService,public store:Store<AppState>) { }  
 
@@ -23,7 +23,6 @@ export class RegistroComponent implements OnInit,OnDestroy {
     });
   }
   onSubmit(value){
-    
     this.authService.crearUsuario(value.nombre,value.correo,value.password);
   }
   ngOnDestroy(){

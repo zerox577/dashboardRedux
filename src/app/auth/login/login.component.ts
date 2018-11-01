@@ -12,7 +12,7 @@ import {AuthService} from '../auth.service';
 export class LoginComponent implements OnInit,OnDestroy {
 
 	public cargando:boolean;
-	public subscription:Subscription;
+	public subscription:Subscription = new Subscription();
 
   constructor(private authService:AuthService,public store:Store<AppState>) { }	
 
