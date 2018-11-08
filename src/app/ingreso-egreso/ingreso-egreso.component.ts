@@ -8,6 +8,8 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { IngresoEgresoModel } from './ingreso-egreso.model';
 import Swal from 'sweetalert2';
 
+import * as fromIngresoEgreso from './ingreso-egreso.reducer';
+
 @Component({
   selector: 'app-ingreso-egreso',
   templateUrl: './ingreso-egreso.component.html',
@@ -20,7 +22,7 @@ export class IngresoEgresoComponent implements OnInit,OnDestroy {
 	public loadingSubs:Subscription = new Subscription();
 	public cargando:boolean;
 
-  constructor(public ingresoEgresoService:IngresoEgresoService,private store:Store<AppState>) { }
+  constructor(public ingresoEgresoService:IngresoEgresoService,private store:Store<fromIngresoEgreso.AppState>) { }
 
   ngOnInit() {
   	this.loadingSubs = this.store.select('ui').subscribe((ui)=>{

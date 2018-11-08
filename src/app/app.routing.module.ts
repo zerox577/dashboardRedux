@@ -10,12 +10,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {
-  	path: '', 
-  	component: DashboardComponent,
-  	children:dashBoardRoutes,
-    canActivate:[AuthGuardService]
-  },
+  {path: '',loadChildren: './ingreso-egreso/ingreso-egreso.module#IngresoEgresoModule',canLoad: [AuthGuardService]},
   {path: '**', redirectTo:''}
 ];
 
